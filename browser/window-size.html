@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Size</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #box{
+            display: inline-block;
+            padding: 16px;
+            margin: 16px;
+            background-color: powderblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <p>모니터 해상도 - window.screen: <span id="screen-x"></span>,<span id="screen-y"></span></p>
+        <p>브라우저 전체의 크기 - window.outer: <span id="outer-x"></span>,<span id="outer-y"></span></p>
+        <p>다큐먼트 페이지 표기 & 스크롤 바 - window.inner: <span id="inner-x"></span>,<span id="inner-y"></span></p>
+        <p>다큐먼트 페이지 표기 - documentElement.clientWidth: <span id="client-x"></span>,<span id="client-y"></span></p>
+    </div>
+    <script>
+        printSizeInfo();
+
+        window.addEventListener('resize', printSizeInfo);
+
+        function printSizeInfo(){
+            document.querySelector('#screen-x').innerHTML = window.screen.width;
+            document.querySelector('#screen-y').innerHTML = window.screen.height;
+            document.querySelector('#outer-x').innerHTML = window.outerWidth;
+            document.querySelector('#outer-y').innerHTML = window.outerHeight;
+            document.querySelector('#inner-x').innerHTML = window.innerWidth;
+            document.querySelector('#inner-y').innerHTML = window.innerHeight; 
+            document.querySelector('#client-x').innerHTML = document.documentElement.clientHeight;
+            document.querySelector('#client-y').innerHTML = document.documentElement.clientWidth;  
+        }
+    </script>
+</body>
+</html>
